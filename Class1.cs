@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ETABSv1;
 
 namespace Columns_Sections
 {
@@ -30,7 +31,7 @@ namespace Columns_Sections
         }
 
 
-        public void Main(ref ETABS2016.cSapModel mySapModel, ref ETABS2016.cPluginCallback ISapPlugin)
+        public void Main(ref cSapModel mySapModel, ref cPluginCallback ISapPlugin)
         {
 
 
@@ -47,7 +48,7 @@ namespace Columns_Sections
 
                 
 
-                ret = mySapModel.SetPresentUnits(ETABS2016.eUnits.Ton_cm_C);
+                ret = mySapModel.SetPresentUnits(eUnits.Ton_cm_C);
                 //Interfaz_Usuario Interfaz = new Interfaz_Usuario();
                 //Data data = new Data();
                 //DatosInnecesarios datosInecesarios = new DatosInnecesarios();

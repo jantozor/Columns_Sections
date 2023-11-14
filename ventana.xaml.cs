@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using ETABSv1;
 
 namespace Columns_Sections
 {
@@ -44,8 +45,8 @@ namespace Columns_Sections
         int i = 0;                              //contador
 
         protected cPlugin ParentPluginObject;
-        protected ETABS2016.cSapModel mySapModel;
-        protected ETABS2016.cPluginCallback ISapPlugin;
+        protected cSapModel mySapModel;
+        protected cPluginCallback ISapPlugin;
         protected Datos data;
         public int ret = 0;
 
@@ -55,14 +56,14 @@ namespace Columns_Sections
             ParentPluginObject = inParentPluginObject;
 
         }
-        public void setSapModel(ETABS2016.cSapModel inSapModel, ETABS2016.cPluginCallback inISapPlugin, Datos Idata)
+        public void setSapModel(cSapModel inSapModel, cPluginCallback inISapPlugin, Datos Idata)
         {
             mySapModel = inSapModel;
             ISapPlugin = inISapPlugin;
             data = Idata;
             
         }
-        public int typerebar(string seccion, int tipo, ETABS2016.cSapModel mySapModel)
+        public int typerebar(string seccion, int tipo, cSapModel mySapModel)
         {
             ret = mySapModel.PropFrame.GetTypeRebar //Lee nombre de la seccion y decide si se diseña como viga o columna
                (

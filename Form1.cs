@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ETABSv1;
 
 namespace Columns_Sections
 {
@@ -36,11 +37,11 @@ namespace Columns_Sections
         /*int i = 0;  */                            //contador
 
         protected cPlugin ParentPluginObject;
-        protected ETABS2016.cSapModel mySapModel;
-        protected ETABS2016.cPluginCallback ISapPlugin;
+        protected cSapModel mySapModel;
+        protected cPluginCallback ISapPlugin;
         protected Datos data;
         public int ret = 0;
-        public ETABS2016.eFramePropType typeoapy;
+        public eFramePropType typeoapy;
 
         #endregion
 
@@ -49,14 +50,14 @@ namespace Columns_Sections
             ParentPluginObject = inParentPluginObject;
 
         }
-        public void setSapModel(ETABS2016.cSapModel inSapModel, ETABS2016.cPluginCallback inISapPlugin, Datos Idata)
+        public void setSapModel(cSapModel inSapModel, cPluginCallback inISapPlugin, Datos Idata)
         {
             mySapModel = inSapModel;
             ISapPlugin = inISapPlugin;
             data = Idata;
 
         }
-        public int typerebar(string seccion, int tipo, ETABS2016.cSapModel mySapModel)
+        public int typerebar(string seccion, int tipo, cSapModel mySapModel)
         {
             ret = mySapModel.PropFrame.GetTypeRebar //Lee nombre de la seccion y decide si se diseña como viga o columna
                (
@@ -134,7 +135,7 @@ namespace Columns_Sections
                 // Obtiene el armado de las columnas rectangulares
                 //MessageBox.Show(data.column_Rebar.mytipe.ToString());
                 ret = mySapModel.PropFrame.GetTypeOAPI(name, ref typeoapy);
-                if (typeoapy == ETABS2016.eFramePropType.Circle || typeoapy == ETABS2016.eFramePropType.Rectangular)
+                if (typeoapy == eFramePropType.Circle || typeoapy == eFramePropType.Rectangular)
                 {
 
                     data.column_Rebar.mytipe = typerebar(name, data.column_Rebar.mytipe, mySapModel);
