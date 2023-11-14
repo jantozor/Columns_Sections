@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ETABS2016">
-      <HintPath>..\..\..\..\..\..\..\Program Files\Computers and Structures\ETABS 2016\ETABS2016.dll</HintPath>
+      <HintPath>..\DLL\CSi\ETABS2016.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
